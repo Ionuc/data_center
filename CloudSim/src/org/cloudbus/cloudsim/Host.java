@@ -8,6 +8,7 @@
 package org.cloudbus.cloudsim;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.cloudbus.cloudsim.core.CloudSim;
@@ -42,7 +43,7 @@ public class Host {
 	private VmScheduler vmScheduler;
 
 	/** The vm list. */
-	private final List<? extends Vm> vmList = new ArrayList<Vm>();
+	private List<? extends Vm> vmList = new ArrayList<Vm>();
 
 	/** The pe list. */
 	private List<? extends Pe> peList;
@@ -83,6 +84,27 @@ public class Host {
 		setFailed(false);
 	}
 
+	public Host clone()
+	{
+		Host clonedHost = new Host(id, ramProvisioner, bwProvisioner, storage, peList, vmScheduler);
+		clonedHost.setVmList(cloneVms());
+		return clonedHost;
+	}
+	
+	private List<Vm> cloneVms()
+	{
+		if (vmList == null || vmList.isEmpty())
+		{
+			return Collections.emptyList();
+		}
+		List<Vm> clonedVms = new ArrayList<>();
+		for ( Vm vm : vmList)
+		{
+			clonedVms.add(vm.clone());
+		}
+		return clonedVms;
+	}
+	
 	/**
 	 * Requests updating of processing of cloudlets in the VMs running in this host.
 	 * 
@@ -529,6 +551,10 @@ public class Host {
 	@SuppressWarnings("unchecked")
 	public <T extends Vm> List<T> getVmList() {
 		return (List<T>) vmList;
+	}
+	
+	public <T extends Vm> void setVmList(List<T> vmList) {
+		this.vmList = vmList;
 	}
 
 	/**

@@ -8,6 +8,8 @@
 
 package org.cloudbus.cloudsim;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.cloudbus.cloudsim.core.CloudSim;
@@ -127,6 +129,26 @@ public class DatacenterCharacteristics {
 		setCostPerBw(costPerBw);
 	}
 
+	public DatacenterCharacteristics clone()
+	{
+		List<Host> hostList = cloneHosts();
+		return new DatacenterCharacteristics(architecture, os, vmm, hostList, timeZone, costPerSecond, costPerMem, costPerStorage, costPerBw);
+	}
+	
+	private List<Host> cloneHosts()
+	{
+		if ( hostList == null || hostList.isEmpty())
+		{
+			return Collections.emptyList();
+		}
+		List<Host> clonedHosts = new ArrayList<>();
+		for (Host host : hostList)
+		{
+			clonedHosts.add(host.clone());
+		}
+		return clonedHosts;
+	}
+	
 	/**
 	 * Gets the name of a resource.
 	 * 

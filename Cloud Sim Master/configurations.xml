@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations>
+	<maxNumberHost>5</maxNumberHost>
+	<maxDistributionPercentage>90</maxDistributionPercentage>
+	<antibodyNumber>10</antibodyNumber>
+	<antibodyIterations>20</antibodyIterations>
+	<clonedAntibodyNumber>20</clonedAntibodyNumber>
+	
+	<energy>
+		<hostCreation>10</hostCreation>
+		<hostDeletion>10</hostDeletion>
+		<hostLoaded>200</hostLoaded>
+		<hostConsumption>1000</hostConsumption>
+		<vmMigration>15</vmMigration>
+	</energy>
+	
+	<hosts> 
+		<host1> 
+			<vm>vm1</vm>
+			<vm>vm2</vm>
+			<vm>vm3</vm>
+			<vm>vm4</vm>
+			<vm>vm5</vm>
+		</host1>
+		<host2> 
+			<vm>vm1</vm>
+			<vm>vm2</vm>
+			<vm>vm3</vm>
+			<vm>vm4</vm>
+			<vm>vm5</vm>
+		</host2>
+		<host3> 
+			<vm>vm1</vm>
+			<vm>vm2</vm>
+			<vm>vm3</vm>
+			<vm>vm4</vm>
+			<vm>vm5</vm>
+		</host3>
+		<host4> 
+			<vm>vm1</vm>
+			<vm>vm2</vm>
+			<vm>vm3</vm>
+			<vm>vm4</vm>
+			<vm>vm5</vm>
+		</host4>
+		<host5> 
+			<vm>vm1</vm>
+			<vm>vm2</vm>
+			<vm>vm3</vm>
+			<vm>vm4</vm>
+			<vm>vm5</vm>
+		</host5>		
+	</hosts>
+</configurations>

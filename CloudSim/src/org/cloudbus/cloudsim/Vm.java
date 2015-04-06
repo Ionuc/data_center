@@ -128,6 +128,10 @@ public class Vm {
 		setCurrentAllocatedSize(0);
 	}
 
+	public Vm clone()
+	{
+		return new Vm(id, userId, mips, numberOfPes, currentAllocatedRam, bw, currentAllocatedSize, vmm, cloudletScheduler);
+	}
 	/**
 	 * Updates the processing of cloudlets running on this VM.
 	 * 
